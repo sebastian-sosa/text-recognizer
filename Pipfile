@@ -35,6 +35,7 @@ tornado = "*"
 scipy = "*"
 pillow = "*"
 wandb = "*"
+rope = "*"
 
 [requires]
 python_version = "3.6"
