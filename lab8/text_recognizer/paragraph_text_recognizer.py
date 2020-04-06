@@ -12,7 +12,7 @@ import text_recognizer.util as util
 
 
 class ParagraphTextRecognizer:
-    """Given an image of a single handwritten character, recognizes it."""
+    """Given an image of a paragraph of text, recognizes text contents."""
 
     def __init__(self):
         self.line_detector_model = LineDetectorModel()
