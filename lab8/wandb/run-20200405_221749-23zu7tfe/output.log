@@ -1,0 +1,108 @@
+Model: "model"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_1 (InputLayer)            [(None, None, None)] 0                                            
+__________________________________________________________________________________________________
+lambda (Lambda)                 (None, None, None, 1 0           input_1[0][0]                    
+__________________________________________________________________________________________________
+conv2d (Conv2D)                 (None, None, None, 1 800         lambda[0][0]                     
+__________________________________________________________________________________________________
+conv2d_1 (Conv2D)               (None, None, None, 1 12560       conv2d[0][0]                     
+__________________________________________________________________________________________________
+conv2d_2 (Conv2D)               (None, None, None, 1 32          lambda[0][0]                     
+__________________________________________________________________________________________________
+add (Add)                       (None, None, None, 1 0           conv2d_1[0][0]                   
+                                                                 conv2d_2[0][0]                   
+__________________________________________________________________________________________________
+activation (Activation)         (None, None, None, 1 0           add[0][0]                        
+__________________________________________________________________________________________________
+conv2d_3 (Conv2D)               (None, None, None, 1 12560       activation[0][0]                 
+__________________________________________________________________________________________________
+conv2d_4 (Conv2D)               (None, None, None, 1 12560       conv2d_3[0][0]                   
+__________________________________________________________________________________________________
+conv2d_5 (Conv2D)               (None, None, None, 1 272         activation[0][0]                 
+__________________________________________________________________________________________________
+add_1 (Add)                     (None, None, None, 1 0           conv2d_4[0][0]                   
+                                                                 conv2d_5[0][0]                   
+__________________________________________________________________________________________________
+activation_1 (Activation)       (None, None, None, 1 0           add_1[0][0]                      
+__________________________________________________________________________________________________
+conv2d_6 (Conv2D)               (None, None, None, 1 12560       activation_1[0][0]               
+__________________________________________________________________________________________________
+conv2d_7 (Conv2D)               (None, None, None, 1 12560       conv2d_6[0][0]                   
+__________________________________________________________________________________________________
+conv2d_8 (Conv2D)               (None, None, None, 1 272         activation_1[0][0]               
+__________________________________________________________________________________________________
+add_2 (Add)                     (None, None, None, 1 0           conv2d_7[0][0]                   
+                                                                 conv2d_8[0][0]                   
+__________________________________________________________________________________________________
+activation_2 (Activation)       (None, None, None, 1 0           add_2[0][0]                      
+__________________________________________________________________________________________________
+conv2d_9 (Conv2D)               (None, None, None, 1 12560       activation_2[0][0]               
+__________________________________________________________________________________________________
+conv2d_10 (Conv2D)              (None, None, None, 1 12560       conv2d_9[0][0]                   
+__________________________________________________________________________________________________
+conv2d_11 (Conv2D)              (None, None, None, 1 272         activation_2[0][0]               
+__________________________________________________________________________________________________
+add_3 (Add)                     (None, None, None, 1 0           conv2d_10[0][0]                  
+                                                                 conv2d_11[0][0]                  
+__________________________________________________________________________________________________
+activation_3 (Activation)       (None, None, None, 1 0           add_3[0][0]                      
+__________________________________________________________________________________________________
+conv2d_12 (Conv2D)              (None, None, None, 1 12560       activation_3[0][0]               
+__________________________________________________________________________________________________
+conv2d_13 (Conv2D)              (None, None, None, 1 12560       conv2d_12[0][0]                  
+__________________________________________________________________________________________________
+conv2d_14 (Conv2D)              (None, None, None, 1 272         activation_3[0][0]               
+__________________________________________________________________________________________________
+add_4 (Add)                     (None, None, None, 1 0           conv2d_13[0][0]                  
+                                                                 conv2d_14[0][0]                  
+__________________________________________________________________________________________________
+activation_4 (Activation)       (None, None, None, 1 0           add_4[0][0]                      
+__________________________________________________________________________________________________
+conv2d_15 (Conv2D)              (None, None, None, 1 12560       activation_4[0][0]               
+__________________________________________________________________________________________________
+conv2d_16 (Conv2D)              (None, None, None, 1 12560       conv2d_15[0][0]                  
+__________________________________________________________________________________________________
+conv2d_17 (Conv2D)              (None, None, None, 1 272         activation_4[0][0]               
+__________________________________________________________________________________________________
+add_5 (Add)                     (None, None, None, 1 0           conv2d_16[0][0]                  
+                                                                 conv2d_17[0][0]                  
+__________________________________________________________________________________________________
+activation_5 (Activation)       (None, None, None, 1 0           add_5[0][0]                      
+__________________________________________________________________________________________________
+conv2d_18 (Conv2D)              (None, None, None, 1 12560       activation_5[0][0]               
+__________________________________________________________________________________________________
+conv2d_19 (Conv2D)              (None, None, None, 1 12560       conv2d_18[0][0]                  
+__________________________________________________________________________________________________
+conv2d_20 (Conv2D)              (None, None, None, 1 272         activation_5[0][0]               
+__________________________________________________________________________________________________
+add_6 (Add)                     (None, None, None, 1 0           conv2d_19[0][0]                  
+                                                                 conv2d_20[0][0]                  
+__________________________________________________________________________________________________
+activation_6 (Activation)       (None, None, None, 1 0           add_6[0][0]                      
+__________________________________________________________________________________________________
+conv2d_21 (Conv2D)              (None, None, None, 3 51          activation_6[0][0]               
+==================================================================================================
+Total params: 165,795
+Trainable params: 165,795
+Non-trainable params: 0
+__________________________________________________________________________________________________
+Epoch 1/32
+WARNING:tensorflow:From /home/ssrlcc_gmail_com/.local/share/virtualenvs/fsdl-text-recognizer-project-rgrFuDzx/lib/python3.6/site-packages/tensorflow/python/ops/math_grad.py:1250: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+2020-04-05 22:17:54.810319: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-04-05 22:17:54.821671: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcuda.so.1
+2020-04-05 22:17:54.825910: E tensorflow/stream_executor/cuda/cuda_driver.cc:318] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2020-04-05 22:17:54.825988: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: tensorflow-1-vm
+2020-04-05 22:17:54.826010: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: tensorflow-1-vm
+2020-04-05 22:17:54.826110: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:200] libcuda reported version is: 410.104.0
+2020-04-05 22:17:54.826168: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:204] kernel reported version is: 410.104.0
+2020-04-05 22:17:54.826203: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:310] kernel version seems to match DSO: 410.104.0
+2020-04-05 22:17:54.829847: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2200000000 Hz
+2020-04-05 22:17:54.830095: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x559828ba5e10 executing computations on platform Host. Devices:
+2020-04-05 22:17:54.830127: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+2020-04-05 22:17:55.242753: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1412] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+ 1/77 [..............................] - ETA: 1:24:58 - loss: 0.9899 2/77 [..............................] - ETA: 1:19:43 - loss: 0.9905
