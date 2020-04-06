@@ -4,7 +4,7 @@ import time
 
 import gpustat
 import numpy as np
-from redlock import Redlock
+from redlock import RedLock
 
 
 GPU_LOCK_TIMEOUT = 5000  # ms
