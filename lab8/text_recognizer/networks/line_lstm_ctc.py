@@ -18,8 +18,8 @@ def line_lstm_ctc(input_shape, output_shape, window_width=28, window_stride=14):
 
     image_input = Input(shape=input_shape, name="image")
     y_true = Input(shape=(output_length,), name="y_true")
-    input_length = Input(shape=(1,), name="input_length")
-    label_length = Input(shape=(1,), name="label_length")
+    input_length = Input(shape=(1,), name="input_length") # length of image strip in px
+    label_length = Input(shape=(1,), name="label_length") # length of target sentence. it varies.
 
     # Your code should use slide_window and extract image patches from image_input.
     # Pass a convolutional model over each image patch to generate a feature vector per window.
