@@ -1,0 +1,30 @@
+{
+    "root": "/home/ssrlcc_gmail_com/fsdl-text-recognizer-project",
+    "program": "training/run_experiment.py",
+    "git": {
+        "remote": "https://github.com/sebastian-sosa/text-recognizer.git",
+        "commit": "e521adfb34075676a3e5e285ea3f3916af666f8f"
+    },
+    "email": "s.sosarippe@gmail.com",
+    "codePath": "lab8/training/run_experiment.py",
+    "startedAt": "2020-04-05T16:37:59.503712",
+    "host": "tensorflow-1-vm",
+    "username": "ssrlcc_gmail_com",
+    "executable": "/home/ssrlcc_gmail_com/.local/share/virtualenvs/fsdl-text-recognizer-project-rgrFuDzx/bin/python",
+    "os": "Linux-4.9.0-11-amd64-x86_64-with-debian-9.11",
+    "python": "3.6.10",
+    "gpu": "Tesla K80",
+    "gpu_count": 1,
+    "cpu_count": 2,
+    "cuda": "10.0.130",
+    "args": [
+        "--save",
+        "{\"dataset\": \"EmnistDataset\", \"model\": \"CharacterModel\", \"network\": \"vgg16\", \"train_args\": {\"batch_size\": 256}}"
+    ],
+    "state": "finished",
+    "jobType": null,
+    "mode": "run",
+    "project": "fsdl-text-recognizer-nov2019",
+    "heartbeatAt": "2020-04-05T17:47:06.361052",
+    "exitcode": 0
+}
