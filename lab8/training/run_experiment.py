@@ -126,6 +126,7 @@ def _parse_args():
 def main():
     """Run experiment."""
     args = _parse_args()
+    print(args)
     # Hide lines below until Lab 3
     if args.gpu < 0:
         gpu_manager = GPUManager()
