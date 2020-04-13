@@ -32,11 +32,9 @@ class IamDataset(Dataset):
         The text lines of all data sets are mutually exclusive, thus each writer has contributed to one set only.
     """
 
-    def __init__(self):
-        self.metadata = toml.load(METADATA_FILENAME)
-
     def load_or_generate_data(self):
         if not self.xml_filenames:
+            self.metadata = toml.load(METADATA_FILENAME)
             self._download_iam()
 
     @property
