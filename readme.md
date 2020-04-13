@@ -1,6 +1,6 @@
 # Text Recognition App
 
-The following project is based on the optical character recognition system of [Full Stack Deep Learning Bootcamp](https://fullstackdeeplearning.com). The purpose of the project is to describe the infrastructure, tooling, deployment and project structure needed for a deep learning production system.
+The following project is based on the optical character recognition system of [Full Stack Deep Learning Bootcamp](https://fullstackdeeplearning.com). The purpose of the course is to describe the infrastructure, tooling, deployment and project structure needed for a deep learning production system.
 
 ## Description of the architecture
 
