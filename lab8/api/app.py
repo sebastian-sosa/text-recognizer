@@ -4,7 +4,7 @@ import os
 from flask import Flask, request, jsonify
 import tensorflow.keras.backend as K
 
-from text_recognizer.line_predictor import LinePredictor
+from text_recognizer.paragraph_text_recognizer import ParagraphTextRecognizer
 import text_recognizer.util as util
 
 os.environ["CUDA_VISIBLE_DEVICES"] = ""  # Do not use GPU
@@ -22,13 +22,13 @@ def index():
 def predict():
     """Provide main prediction API route. Responds to both GET and POST requests."""
     K.clear_session()
-    predictor = LinePredictor()
+    predictor = ParagraphTextRecognizer()
     image = _load_image()
-    pred, conf = predictor.predict(image)
-    print("METRIC confidence {}".format(conf))
+    pred, line_region_crops = predictor.predict(image)
+    print("INFO line_region_crops {}".format(line_region_crops))
     print("METRIC mean_intensity {}".format(image.mean()))
     print("INFO pred {}".format(pred))
-    return jsonify({"pred": str(pred), "conf": float(conf)})
+    return jsonify({"pred": str(pred)})
 
 
 def _load_image():

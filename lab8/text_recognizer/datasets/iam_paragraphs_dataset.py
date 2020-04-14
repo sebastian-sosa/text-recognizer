@@ -25,7 +25,6 @@ class IamParagraphsDataset(Dataset):
 
     def __init__(self, subsample_fraction: float = None):
         self.iam_dataset = IamDataset()
-        self.iam_dataset.load_or_generate_data()
 
         self.num_classes = 3
         self.input_shape = (256, 256)
@@ -39,6 +38,8 @@ class IamParagraphsDataset(Dataset):
 
     def load_or_generate_data(self):
         """Load or generate dataset data."""
+        self.iam_dataset.load_or_generate_data()
+
         num_actual = len(list(CROPS_DIRNAME.glob("*.jpg")))
         num_target = len(self.iam_dataset.line_regions_by_id)
         if num_actual < num_target - 2:  # There are a couple of instances that could not be cropped

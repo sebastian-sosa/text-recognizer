@@ -2,6 +2,7 @@
 from typing import Callable, Dict, Tuple
 
 import numpy as np
+from tensorflow.keras.optimizers import Adam
 
 from text_recognizer.models.base import Model
 from text_recognizer.datasets.emnist_dataset import EmnistDataset
@@ -31,3 +32,6 @@ class CharacterModel(Model):
         predicted_character = self.data.mapping[ind]
         # Your code above (Lab 1)
         return predicted_character, confidence_of_prediction
+
+    def optimizer(self):
+        return Adam()

@@ -1,0 +1,89 @@
+diff --git a/lab8/tasks/train_character_predictor.sh b/lab8/tasks/train_character_predictor.sh
+index 165bf8e..0263122 100755
+--- a/lab8/tasks/train_character_predictor.sh
++++ b/lab8/tasks/train_character_predictor.sh
+@@ -1,2 +1,2 @@
+ #!/bin/bash
+-python training/run_experiment.py --save '{"dataset": "EmnistDataset", "model": "CharacterModel", "network": "mlp", "train_args": {"batch_size": 256}}'
++python training/run_experiment.py --save '{"dataset": "EmnistDataset", "model": "CharacterModel", "network": "simple_cnn", "train_args": {"batch_size": 256}}'
+diff --git a/lab8/text_recognizer/models/character_model.py b/lab8/text_recognizer/models/character_model.py
+index 749c07e..038df76 100644
+--- a/lab8/text_recognizer/models/character_model.py
++++ b/lab8/text_recognizer/models/character_model.py
+@@ -2,6 +2,7 @@
+ from typing import Callable, Dict, Tuple
+ 
+ import numpy as np
++from tensorflow.keras.optimizers import Adam
+ 
+ from text_recognizer.models.base import Model
+ from text_recognizer.datasets.emnist_dataset import EmnistDataset
+@@ -31,3 +32,6 @@ class CharacterModel(Model):
+         predicted_character = self.data.mapping[ind]
+         # Your code above (Lab 1)
+         return predicted_character, confidence_of_prediction
++
++    def optimizer(self):
++        return Adam()
+diff --git a/lab8/text_recognizer/networks/__init__.py b/lab8/text_recognizer/networks/__init__.py
+index dcdc517..4594e1a 100644
+--- a/lab8/text_recognizer/networks/__init__.py
++++ b/lab8/text_recognizer/networks/__init__.py
+@@ -1,6 +1,8 @@
+ """Neural network code modules."""
+ from .mlp import mlp
+ from .lenet import lenet
++from .vgg16 import vgg16
++from .simple_cnn import simple_cnn
+ 
+ # Hide lines below until Lab 2
+ from .line_cnn_all_conv import line_cnn_all_conv
+diff --git a/lab8/text_recognizer/weights/CharacterModel_EmnistDataset_mlp_weights.h5 b/lab8/text_recognizer/weights/CharacterModel_EmnistDataset_mlp_weights.h5
+index fdf6d76..c9dda81 100644
+Binary files a/lab8/text_recognizer/weights/CharacterModel_EmnistDataset_mlp_weights.h5 and b/lab8/text_recognizer/weights/CharacterModel_EmnistDataset_mlp_weights.h5 differ
+diff --git a/lab8/training/run_experiment.py b/lab8/training/run_experiment.py
+index 2393174..cf91abb 100755
+--- a/lab8/training/run_experiment.py
++++ b/lab8/training/run_experiment.py
+@@ -9,8 +9,6 @@ import os
+ # Hide lines below until Lab 3
+ import wandb
+ 
+-from training.gpu_manager import GPUManager
+-
+ # Hide lines above until Lab 3
+ from training.util import train_model
+ 
+@@ -56,7 +54,6 @@ def run_experiment(experiment_config: Dict, save_weights: bool, gpu_ind: int, us
+     dataset_args = experiment_config.get("dataset_args", {})
+     dataset = dataset_class_(**dataset_args)
+     dataset.load_or_generate_data()
+-    print(dataset)
+ 
+     models_module = importlib.import_module("text_recognizer.models")
+     model_class_ = getattr(models_module, experiment_config["model"])
+@@ -67,7 +64,6 @@ def run_experiment(experiment_config: Dict, save_weights: bool, gpu_ind: int, us
+     model = model_class_(
+         dataset_cls=dataset_class_, network_fn=network_fn_, dataset_args=dataset_args, network_args=network_args,
+     )
+-    print(model)
+ 
+     experiment_config["train_args"] = {
+         **DEFAULT_TRAIN_ARGS,
+@@ -126,15 +122,9 @@ def _parse_args():
+ def main():
+     """Run experiment."""
+     args = _parse_args()
+-    # Hide lines below until Lab 3
+-    if args.gpu < 0:
+-        gpu_manager = GPUManager()
+-        args.gpu = gpu_manager.get_free_gpu()  # Blocks until one is available
+-    # Hide lines above until Lab 3
+ 
+     experiment_config = json.loads(args.experiment_config)
+-    os.environ["CUDA_VISIBLE_DEVICES"] = f"{args.gpu}"
+-    run_experiment(experiment_config, args.save, args.gpu, use_wandb=not args.nowandb)
++    run_experiment(experiment_config, args.save, -1, use_wandb=not args.nowandb)
+ 
+ 
+ if __name__ == "__main__":

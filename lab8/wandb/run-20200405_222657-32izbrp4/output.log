@@ -1,0 +1,63 @@
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+lambda (Lambda)              (None, 28, 28, 1)         0         
+_________________________________________________________________
+conv2d (Conv2D)              (None, 28, 28, 64)        640       
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 14, 14, 64)        0         
+_________________________________________________________________
+dropout (Dropout)            (None, 14, 14, 64)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 14, 14, 128)       73856     
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 7, 7, 128)         0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 7, 7, 128)         0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 7, 7, 256)         295168    
+_________________________________________________________________
+flatten (Flatten)            (None, 12544)             0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 12544)             0         
+_________________________________________________________________
+dense (Dense)                (None, 80)                1003600   
+=================================================================
+Total params: 1,373,264
+Trainable params: 1,373,264
+Non-trainable params: 0
+_________________________________________________________________
+2020-04-05 22:26:59.972586: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-04-05 22:27:00.016384: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcuda.so.1
+2020-04-05 22:27:00.344945: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1005] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-04-05 22:27:00.346590: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55a659837e10 executing computations on platform CUDA. Devices:
+2020-04-05 22:27:00.346629: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): Tesla K80, Compute Capability 3.7
+2020-04-05 22:27:00.353959: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2200000000 Hz
+2020-04-05 22:27:00.354357: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55a6596d8240 executing computations on platform Host. Devices:
+2020-04-05 22:27:00.354391: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+2020-04-05 22:27:00.354856: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1005] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-04-05 22:27:00.355485: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties: 
+name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
+pciBusID: 0000:00:04.0
+2020-04-05 22:27:00.356211: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0
+2020-04-05 22:27:00.361533: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcublas.so.10.0
+2020-04-05 22:27:00.363897: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcufft.so.10.0
+2020-04-05 22:27:00.364825: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcurand.so.10.0
+2020-04-05 22:27:00.367854: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusolver.so.10.0
+2020-04-05 22:27:00.370348: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcusparse.so.10.0
+2020-04-05 22:27:00.375970: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudnn.so.7
+2020-04-05 22:27:00.376216: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1005] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-04-05 22:27:00.376999: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1005] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-04-05 22:27:00.377640: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1763] Adding visible gpu devices: 0
+2020-04-05 22:27:00.377832: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudart.so.10.0
+2020-04-05 22:27:00.379915: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-04-05 22:27:00.380051: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1187]      0 
+2020-04-05 22:27:00.380144: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1200] 0:   N 
+2020-04-05 22:27:00.380689: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1005] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-04-05 22:27:00.381557: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:1005] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-04-05 22:27:00.382305: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1326] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10802 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:00:04.0, compute capability: 3.7)
+Epoch 1/16
+2020-04-05 22:27:01.955385: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcublas.so.10.0
+2020-04-05 22:27:02.151033: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudnn.so.7
+   1/1314 [..............................] - ETA: 46:55 - loss: 4.3404 - acc: 0.0312   3/1314 [..............................] - ETA: 16:17 - loss: 4.4203 - acc: 0.0104   5/1314 [..............................] - ETA: 10:08 - loss: 4.4503 - acc: 0.0063   7/1314 [..............................] - ETA: 7:30 - loss: 4.2735 - acc: 0.0045    9/1314 [..............................] - ETA: 6:02 - loss: 4.1606 - acc: 0.0035  11/1314 [..............................] - ETA: 5:05 - loss: 4.3610 - acc: 0.0028  13/1314 [..............................] - ETA: 4:26 - loss: 4.4293 - acc: 0.0024  15/1314 [..............................] - ETA: 3:57 - loss: 4.4668 - acc: 0.0021  17/1314 [..............................] - ETA: 3:34 - loss: 4.4734 - acc: 0.0018  19/1314 [..............................] - ETA: 3:17 - loss: 4.4617 - acc: 0.0016  21/1314 [..............................] - ETA: 3:03 - loss: 4.4570 - acc: 0.0015  23/1314 [..............................] - ETA: 2:51 - loss: 4.4522 - acc: 0.0014  25/1314 [..............................] - ETA: 2:41 - loss: 4.4474 - acc: 0.0012  27/1314 [..............................] - ETA: 2:33 - loss: 4.4380 - acc: 0.0265  29/1314 [..............................] - ETA: 2:25 - loss: 4.4331 - acc: 0.0246  31/1314 [..............................] - ETA: 2:19 - loss: 4.4295 - acc: 0.0231  33/1314 [..............................] - ETA: 2:13 - loss: 4.4265 - acc: 0.0217  35/1314 [..............................] - ETA: 2:08 - loss: 4.4248 - acc: 0.0204  37/1314 [..............................] - ETA: 2:04 - loss: 4.4205 - acc: 0.0193  39/1314 [..............................] - ETA: 2:00 - loss: 4.4181 - acc: 0.0183  41/1314 [..............................] - ETA: 1:57 - loss: 4.4175 - acc: 0.0174  43/1314 [..............................] - ETA: 1:53 - loss: 4.4154 - acc: 0.0166  45/1314 [>.............................] - ETA: 1:50 - loss: 4.4142 - acc: 0.0159  47/1314 [>.............................] - ETA: 1:47 - loss: 4.4115 - acc: 0.0152  49/1314 [>.............................] - ETA: 1:45 - loss: 4.4118 - acc: 0.0146  51/1314 [>.............................] - ETA: 1:43 - loss: 4.4086 - acc: 0.0140  53/1314 [>.............................] - ETA: 1:41 - loss: 4.4067 - acc: 0.0135  55/1314 [>.............................] - ETA: 1:38 - loss: 4.4076 - acc: 0.0130  57/1314 [>.............................] - ETA: 1:37 - loss: 4.4045 - acc: 0.0125  59/1314 [>.............................] - ETA: 1:35 - loss: 4.4041 - acc: 0.0121  61/1314 [>.............................] - ETA: 1:33 - loss: 4.4003 - acc: 0.0118  63/1314 [>.............................] - ETA: 1:32 - loss: 4.3966 - acc: 0.0114  65/1314 [>.............................] - ETA: 1:30 - loss: 4.3959 - acc: 0.0111  67/1314 [>.............................] - ETA: 1:29 - loss: 4.3952 - acc: 0.0107  69/1314 [>.............................] - ETA: 1:27 - loss: 4.3916 - acc: 0.0104

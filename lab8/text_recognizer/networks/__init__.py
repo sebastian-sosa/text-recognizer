@@ -1,6 +1,8 @@
 """Neural network code modules."""
 from .mlp import mlp
 from .lenet import lenet
+from .vgg16 import vgg16
+from .simple_cnn import simple_cnn
 
 # Hide lines below until Lab 2
 from .line_cnn_all_conv import line_cnn_all_conv
