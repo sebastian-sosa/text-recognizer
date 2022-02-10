@@ -63,7 +63,7 @@ subprocess32==3.5.4
 tensorboard-plugin-wit==1.6.0.post2
 tensorboard==2.2.0
 tensorflow-estimator==2.2.0rc0
-tensorflow==2.2.0rc2
+tensorflow==2.5.3
 termcolor==1.1.0
 toml==0.10.0
 tqdm==4.44.1
