@@ -74,6 +74,6 @@ virtualenv==20.0.15
 wandb==0.8.31
 watchdog==0.10.2
 werkzeug==1.0.0
-wheel==0.34.2
+wheel==0.38.1
 wrapt==1.11.2
 zipp==3.1.0
